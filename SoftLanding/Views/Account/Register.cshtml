@@ -1,0 +1,54 @@
+﻿@model RegisterVM
+
+<div style="width:auto; height:100px">
+
+</div>
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Register</h4>
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <form class="forms-sample" method="post">
+                            <div class="form-group">
+                                <label for="Name">Username</label>
+                                <input asp-for="Name" class="form-control" placeholder="Name">
+                                <span asp-validation-for="Name"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Surname">Username</label>
+                                <input asp-for="Surname" class="form-control" placeholder="Surname">
+                                <span asp-validation-for="Surname"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Username">Username</label>
+                                <input asp-for="Username" class="form-control" placeholder="Username">
+                                <span asp-validation-for="Username"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                <input asp-for="Email" class="form-control" placeholder="Email">
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password</label>
+                                <input asp-for="Password" class="form-control" placeholder="Password">
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="ConfirmPassword">ConfirmPassword</label>
+                                <input asp-for="ConfirmPassword" class="form-control" placeholder="ConfirmPassword">
+                                <span asp-validation-for="ConfirmPassword"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light" asp-controller="Home" asp-action="index">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
