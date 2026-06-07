@@ -1,0 +1,56 @@
+﻿@model List<GetJobVM>
+
+@{
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Job Table</h4>
+                <a class="btn btn-outline-success" asp-action="create">Create</a>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Count
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (GetJobVM job in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @(++count)
+                                    </td>
+                                    @* <td class="py-1">
+                                        <img src="~/images/" alt="image" />
+                                    </td> *@
+                                    <td>
+                                        @job.Name
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-outline-info" asp-action="detail" asp-route-id="@job.Id">Detail</a>
+                                        <a class="btn btn-outline-warning" asp-action="update" asp-route-id="@job.Id">Update</a>
+                                        <a class="btn btn-outline-danger" asp-action="delete" asp-route-id="@job.Id">delete</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model CreateTeamVM
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Team</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Image</label>
+                        <input asp-for="Image" class="form-control" accept="image/*">
+                        <span class="text-danger" asp-validation-for="Image"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+
+                    </div>
+                    @if (!Model.Jobs.Any())
+                        {
+                        <p class="text-danger">First create a job</p>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label asp-for="JobID">Job</label>
+                            <select class="form-select" asp-for="JobID">
+                                @foreach (Job job in Model.Jobs)
+                                {
+                                    <option value="@job.Id">@job.Name</option>
+                                }
+                            </select>
+                            <span class="text-danger" asp-validation-for="JobID"></span>
+
+                        </div>
+                    }
+                   
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a class="btn btn-light" asp-action="index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model List<GetTeamVM>
+
+@{
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Team Table</h4>
+                <a class="btn btn-outline-success" asp-action="create">Create</a>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Count
+                                </th>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Job
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (GetTeamVM team in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @(++count)
+                                    </td>
+                                    <td class="py-1">
+                                        <img src="~/images/@team.Image" alt="image" />
+                                    </td>
+                                    <td>
+                                        @team.Name
+                                    </td>
+                                    <td>
+                                        @team.Job
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-outline-info" asp-action="detail" asp-route-id="@team.Id">Detail</a>
+                                        <a class="btn btn-outline-warning" asp-action="update" asp-route-id="@team.Id">Update</a>
+                                        <a class="btn btn-outline-danger" asp-action="delete" asp-route-id="@team.Id">delete</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
