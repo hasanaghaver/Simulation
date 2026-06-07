@@ -1,0 +1,47 @@
+﻿@model DetailToolVM
+
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detils</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                                <th>
+                                    SubTitle
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                                <tr>
+                                    
+                                    <td class="py-1">
+                                        <img src="~/assets/images/@Model.Image" alt="image" />
+                                    </td>
+                                    <td>
+                                        @Model.Title
+                                    </td>
+                                    <td>
+                                        @Model.Subtitle
+                                    </td>
+                                </tr>
+
+
+                        </tbody>
+                    </table>
+                    <a class="btn btn-close" asp-action="index"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Nix.Data;
+using Nix.Models;
 
 namespace Nix
 {
@@ -12,6 +14,16 @@ namespace Nix
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("default")));
+
+            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.User.RequireUniqueEmail = true;
+
+                opt.Password.RequireNonAlphanumeric = true;
+
+                opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+                opt.Lockout.MaxFailedAccessAttempts = 3;
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
             var app = builder.Build();
 

@@ -64,7 +64,19 @@
                             <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
                             <li class="scroll-to-section"><a href="#video">Videos</a></li>
                             <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
-                            <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#contact">Contact Us Now</a></div></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                <li class="scroll-to-section"><div class="main-red-button-hover"><a >@User.Identity.Name</a></div></li>
+                                <li class="scroll-to-section"><div class="main-red-button-hover"><a asp-controller="account" asp-action="logout">Logout</a></div></li>
+                            }
+                            else
+                            {
+                                <li class="scroll-to-section"><a asp-controller="account" asp-action="register">Register</a></li>
+
+                                <li class="scroll-to-section"><div class="main-red-button-hover"><a asp-controller="account" asp-action="login">Login</a></div></li>
+
+                            }
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
