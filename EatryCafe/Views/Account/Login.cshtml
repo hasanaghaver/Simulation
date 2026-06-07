@@ -1,0 +1,34 @@
+﻿@model Login
+
+<div style="width:100%; height:100px">
+</div>
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Login</h4>
+                <form class="forms-sample" method="post">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group">
+                        <label asp-for="UsernameOrEmail">Username Or Email</label>
+                        <input asp-for="UsernameOrEmail" class="form-control" placeholder="UsernameOrEmail">
+                        <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">Surname</label>
+                        <input asp-for="Password" class="form-control" placeholder="Password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IsPersistent">Remember Me</label>
+                        <input asp-for="IsPersistent" class="form-check">
+                        <span asp-validation-for="IsPersistent" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="home" asp-action="index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
